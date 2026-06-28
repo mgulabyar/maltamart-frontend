@@ -200,7 +200,7 @@ const Home = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("https://vercel.app", {
+      const response = await fetch("https://maltamart-backend.vercel.app/products", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
