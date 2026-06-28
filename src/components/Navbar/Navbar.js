@@ -1,0 +1,184 @@
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaBars, FaCog, FaUserCircle, FaBell } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import logo from "../../images/logo.png";
+import "./Navbar.css";
+import { handleSuccess, handleError } from "../../utils";
+
+const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const hideCenter =
+    location.pathname === "/login" || location.pathname === "/signup";
+
+  const token = localStorage.getItem("token");
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const email = localStorage.getItem("loggedInEmail");
+  const role = localStorage.getItem("role");
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setProfileOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/auth/logout", {
+        method: "DELETE",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        localStorage.clear();
+        
+        handleSuccess("Logged out successfully!");
+
+        setTimeout(() => navigate("/"), 6000);
+      } else {
+        handleError(result.message || "Logout failed");
+      }
+    } catch (err) {
+      handleError(err.message || "Something went wrong");
+    }
+  };
+
+  const handleCreateVariety = () => navigate("/create-variety");
+
+  return (
+    <>
+      <nav className="navbar">
+        <div className="nav-left">
+          <img src={logo} alt="Logo" className="logo" />
+          <span className="brand">MaltaMart</span>
+        </div>
+
+        {!hideCenter && (
+          <div className="nav-center">
+            <button onClick={() => navigate("/home")}>Home</button>
+            <button onClick={() => navigate("/view-varieties")}>
+              View Varieties
+            </button>
+            <button onClick={() => navigate("/about")}>About</button>
+            <button onClick={() => navigate("/favourite")}>
+              Your Favourites
+            </button>
+          </div>
+        )}
+
+        <div className="nav-right">
+          <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+            <FaBars />
+          </div>
+
+          {token ? (
+            <div className="profile-wrapper" ref={dropdownRef}>
+              {role === "admin" && (
+                <button className="create-btn" onClick={handleCreateVariety}>
+                  Create
+                </button>
+              )}
+
+              <div
+                className="profile-icon"
+                onClick={() => setProfileOpen(!profileOpen)}
+              >
+                {loggedInUser?.charAt(0).toUpperCase() || "U"}
+              </div>
+
+              <div className={`profile-card ${profileOpen ? "show" : ""}`}>
+                <div className="profile-header">
+                  <div className="profile-circle">
+                    {loggedInUser?.charAt(0).toUpperCase()}
+                  </div>
+
+                  <div className="profile-info">
+                    <p className="name">{loggedInUser}</p>
+                    <p className="email">{email}</p>
+                  </div>
+                </div>
+
+                <div className="profile-links">
+                  <p>
+                    <FaCog /> Settings
+                  </p>
+                  <p>
+                    <FaUserCircle /> My Account
+                  </p>
+                  <p>
+                    <FaBell /> Notifications
+                  </p>
+                </div>
+
+                <div className="profile-actions">
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="auth-buttons">
+              <Link to="/login">
+                <button style={{ marginRight: "10px" }}>Login</button>
+              </Link>
+              <Link to="/signup">
+                <button>Signup</button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {menuOpen && (
+        <div className="mobile-menu">
+          <button onClick={() => navigate("/home")}>Home</button>
+          <button onClick={() => navigate("/view-varieties")}>
+            View Varieties
+          </button>
+          <button onClick={() => navigate("/about")}>About</button>
+          <button onClick={() => navigate("/favourite")}>
+            Your Favourites
+          </button>
+
+          {role === "admin" && (
+            <button onClick={handleCreateVariety}>Create</button>
+          )}
+
+          {token ? (
+            <>
+              <div className="mobile-profile-card">
+                <div className="profile-circle">
+                  {loggedInUser?.charAt(0).toUpperCase()}
+                </div>
+                <p className="name">{loggedInUser}</p>
+                <p className="email">{email}</p>
+              </div>
+
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => navigate("/login")}>Login</button>
+              <button onClick={() => navigate("/signup")}>Signup</button>
+            </>
+          )}
+        </div>
+      )}
+
+      <ToastContainer />
+    </>
+  );
+};
+
+export default Navbar;

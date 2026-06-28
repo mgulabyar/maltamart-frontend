@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.footer-landing {
+  background: linear-gradient(135deg, #333, #444);
+  color: #eee;
+  padding: 80px 20px 40px 20px;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+}
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-logo-section {
+  flex: 1 1 300px;
+}
+.footer-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffa500;
+}
+.footer-logo-section p {
+  color: #bbb;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.footer-links,
+.footer-contact,
+.footer-social {
+  flex: 1 1 200px;
+}
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3 {
+  font-size: 18px;
+  color: #ffa500;
+  margin-bottom: 15px;
+}
+.footer-links a,
+.footer-contact p {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s ease;
+}
+.footer-links a:hover {
+  color: #ff8c00;
+}
+.footer-social .social-icons {
+  display: flex;
+  gap: 15px;
+}
+.footer-social .social-icons a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+.footer-social .social-icons a:hover {
+  background: #ff8c00;
+  transform: scale(1.15);
+}
+.footer-bottom {
+  margin-top: 40px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+}
+
+[data-aos] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition-property: opacity, transform;
+  transition-duration: 1s;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-landing h1 {
+    font-size: 42px;
+  }
+  .features-grid,
+  .steps-grid,
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature-card,
+  .step-card,
+  .pricing-card {
+    width: 90%;
+  }
+  .footer-landing .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

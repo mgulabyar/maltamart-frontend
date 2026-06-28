@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  background: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  width: 70px;
+}
+.brand {
+  font-size: 35px;
+  font-weight: 700;
+  color: #ff8c00;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-center button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.nav-center button:hover {
+  color: #ffa500;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.create-btn,
+.nav-right .auth-buttons button {
+  background: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.create-btn:hover,
+.nav-right .auth-buttons button:hover {
+  background: #ff8c00;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffa500;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.profile-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 250px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+.profile-card.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffa500;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+.profile-info .name {
+  font-weight: 700;
+  font-size: 14px;
+}
+.profile-info .email {
+  font-size: 12px;
+  color: #555;
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 8px;
+}
+.profile-links p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+}
+.profile-links p:hover {
+  color: #ff8c00;
+  transform: translateX(3px);
+}
+
+.profile-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.profile-actions button {
+  width: 100%;
+  background-color: #ffa500;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  width: 100%;
+  position: absolute;
+  top: 96px;
+  left: 0;
+  padding: 15px 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  gap: 10px;
+  animation: slideDown 0.35s ease forwards;
+  z-index: 99;
+}
+
+.mobile-menu button {
+  background: none;
+  color: #333;
+  border: none;
+  border-radius: 0;
+  padding: 8px 0;
+  text-align: left;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.mobile-menu button:hover {
+  color: #ff8c00;
+  transform: translateX(3px);
+}
+
+.mobile-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+  width: 100%;
+  gap: 5px;
+  border-top: 1px solid #eee;
+}
+.mobile-profile-card .profile-circle {
+  width: 35px;
+  height: 35px;
+  font-size: 14px;
+}
+.mobile-profile-card .name {
+  font-weight: 700;
+}
+.mobile-profile-card .email {
+  font-size: 12px;
+  color: #555;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 870px) {
+  .nav-center,
+  .profile-wrapper,
+  .auth-buttons {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+}

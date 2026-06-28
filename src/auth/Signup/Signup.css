@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#signup-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #fff7ed, #ffe4b3);
+  overflow: hidden;
+}
+
+#signup-box {
+  width: 380px;
+  background: white;
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-60px) scale(0.95);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animate-signup {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+#signup-title {
+  margin-bottom: 25px;
+  font-size: 30px;
+  text-align: center;
+  color: #FF8C00;
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.signup-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-field input {
+  padding: 10px 5px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.signup-field input:focus {
+  border-bottom: 2px solid #FFA500;
+}
+
+#signup-box input::placeholder {
+  font-size: 13px;
+  color: #777;
+}
+
+#signup-btn {
+  width: 100%;
+  padding: 14px;
+  background: #FFA500; 
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#signup-btn:hover {
+  background: #FF8C00;
+  transform: scale(1.05);
+}
+
+#signup-bottom-text {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+#signup-bottom-text a {
+  color: #FFA500;
+  margin-left: 5px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+#signup-bottom-text a:hover {
+  text-decoration: underline;
+  color: #FF8C00;
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 400px) {
+  #signup-box {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}
