@@ -14,7 +14,7 @@ const ViewVarieties = () => {
 
   const fetchVarieties = async () => {
     try {
-      const res = await fetch("http://localhost:8080/varieties");
+      const res = await fetch("https://maltamart-backend.vercel.app/varieties");
       const data = await res.json();
       if (data.success) setVarieties(data.data);
       else handleError(data.message);
@@ -25,7 +25,7 @@ const ViewVarieties = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:8080/varieties/${id}`, {
+      const res = await fetch(`https://maltamart-backend.vercel.app/varieties/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -44,7 +44,7 @@ const ViewVarieties = () => {
       if (!token) return handleError("You must be logged in");
 
       const res = await fetch(
-        `http://localhost:8080/favourites/add/${variety._id}`,
+        `https://maltamart-backend.vercel.app/favourites/add/${variety._id}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

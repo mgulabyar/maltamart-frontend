@@ -26,14 +26,14 @@ const Home = () => {
   // };
 const fetchProducts = async () => {
   try {
-    const response = await fetch("http://localhost:8080/products", {
+    const response = await fetch("https://maltamart-backend.vercel.app/products", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
     });
 
     if (!response.ok) {
-      setProducts([]); // ✅ 403 / error case
+      setProducts([]); 
       return;
     }
 
@@ -41,7 +41,7 @@ const fetchProducts = async () => {
 
     setProducts(Array.isArray(result.products) ? result.products : []);
   } catch (err) {
-    setProducts([]); // ✅ network / crash safety
+    setProducts([]);
     handleError(err.message || "Failed to fetch products");
   }
 };

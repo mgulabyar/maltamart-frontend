@@ -14,7 +14,7 @@ const FavouritePage = () => {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const res = await fetch("http://localhost:8080/favourites", {
+        const res = await fetch("https://maltamart-backend.vercel.app/favourites", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -41,7 +41,7 @@ const FavouritePage = () => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    const res = await fetch(`http://localhost:8080/favourites/remove/${id}`, {
+    const res = await fetch(`https://maltamart-backend.vercel.app/favourites/remove/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });

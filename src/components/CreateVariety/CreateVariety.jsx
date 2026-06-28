@@ -26,7 +26,7 @@ const imagesArray = form.imagesInput.split(",").map((i) => i.trim()).filter(i =>
     }
 
     try {
-      const res = await fetch("http://localhost:8080/varieties/create", {
+      const res = await fetch("https://maltamart-backend.vercel.app/varieties/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

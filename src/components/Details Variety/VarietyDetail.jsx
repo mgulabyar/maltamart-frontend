@@ -73,7 +73,7 @@ const VarietyDetail = () => {
   useEffect(() => {
     const fetchVariety = async () => {
       try {
-        const res = await fetch(`http://localhost:8080/varieties/${id}`);
+        const res = await fetch(`https://maltamart-backend.vercel.app/varieties/${id}`);
         const data = await res.json();
         if (data.success) {
           setVariety(data.data);

@@ -17,7 +17,7 @@ const UpdateVariety = () => {
   useEffect(() => {
     const fetchVariety = async () => {
       try {
-        const res = await fetch(`http://localhost:8080/varieties/${id}`);
+        const res = await fetch(`https://maltamart-backend.vercel.app/varieties/${id}`);
         const data = await res.json();
         if (data.success) {
           setForm({
@@ -39,7 +39,7 @@ const UpdateVariety = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/varieties/${id}`, {
+      const res = await fetch(`https://maltamart-backend.vercel.app/varieties/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

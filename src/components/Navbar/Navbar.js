@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:8080/auth/logout", {
+      const res = await fetch("https://maltamart-backend.vercel.app/auth/logout", {
         method: "DELETE",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       });
