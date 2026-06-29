@@ -144,7 +144,7 @@ const About = () => {
         <div className="owner-section">
           <img src={owner} alt="Owner" />
           <div className="owner-info">
-            <h3>M. Gulab Yar</h3>
+            <h3>Shabana Ishaq</h3>
             <p>Founder, CEO & Chief Citrus Agriculturist at MaltaMart.</p>
             <p>
               With a decade of hands-on citrus experience, he ensures every
@@ -162,10 +162,10 @@ const About = () => {
             Pakistan
           </div>
           <div style={{marginRight:"73px"}}> 
-            <MdPhone size={28} color="#ff8c00" /> +92 3468016921
+            <MdPhone size={28} color="#ff8c00" /> +92 336 7190072
           </div>
           <div style={{marginRight:"28px"}}>
-            <MdEmail size={28} color="#ff8c00" /> maltamart@gmail.com
+            <MdEmail size={28} color="#ff8c00" /> shabanaishaq.work@gmail.com
           </div>
         </div>
       </div>
