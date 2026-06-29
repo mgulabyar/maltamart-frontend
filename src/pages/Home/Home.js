@@ -1,3 +1,4 @@
+
 // import { useEffect, useState } from "react";
 // import { handleError } from "../../utils";
 // import "aos/dist/aos.css";
@@ -13,41 +14,29 @@
 //     setLoggedInUser(localStorage.getItem("loggedInUser"));
 //   }, []);
 
-//   // const fetchProducts = async () => {
-//   //   try {
-//   //     const response = await fetch("http://localhost:8080/products", {
-//   //       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-//   //     });
-//   //     const result = await response.json();
-//   //     setProducts(result);
-//   //   } catch (err) {
-//   //     handleError(err.message || "Failed to fetch products");
-//   //   }
-//   // };
-// const fetchProducts = async () => {
-//   try {
-//     const response = await fetch("https://maltamart-backend.vercel.app/products", {
-//       headers: {
-//         Authorization: "Bearer " + localStorage.getItem("token"),
-//       },
-//     });
+//   const fetchProducts = async () => {
+//     try {
+//       const response = await fetch("https://maltamart-backend.vercel.app/products", {
+//         headers: {
+//           Authorization: "Bearer " + localStorage.getItem("token"),
+//         },
+//       });
 
-//     if (!response.ok) {
-//       setProducts([]); 
-//       return;
+//       if (!response.ok) {
+//         setProducts([]); 
+//         return;
+//       }
+
+//       const result = await response.json();
+
+//       // ONLY FIX HERE: Direct array check lagaya ha bina kisi aur line ko chere
+//       setProducts(Array.isArray(result) ? result : []);
+//     } catch (err) {
+//       setProducts([]);
+//       handleError(err.message || "Failed to fetch products");
 //     }
+//   };
 
-//     const result = await response.json();
-
-//     setProducts(Array.isArray(result.products) ? result.products : []);
-//   } catch (err) {
-//     setProducts([]);
-//     handleError(err.message || "Failed to fetch products");
-//   }
-// };
-
-
-  
 //   useEffect(() => {
 //     fetchProducts();
 //     const observer = new IntersectionObserver(
@@ -183,6 +172,7 @@
 
 // export default Home;
 
+
 import { useEffect, useState } from "react";
 import { handleError } from "../../utils";
 import "aos/dist/aos.css";
@@ -212,8 +202,6 @@ const Home = () => {
       }
 
       const result = await response.json();
-
-      // ONLY FIX HERE: Direct array check lagaya ha bina kisi aur line ko chere
       setProducts(Array.isArray(result) ? result : []);
     } catch (err) {
       setProducts([]);
@@ -231,7 +219,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 } // Slightly lower threshold for faster mobile triggers
     );
 
     document.querySelectorAll(".animate-on-scroll").forEach((el) => {
@@ -340,8 +328,10 @@ const Home = () => {
             "Updated inventory for 'Wireless Earbuds'",
           ].map((item, index) => (
             <li key={index} className="activity-item animate-on-scroll">
-              <i className="fa-solid fa-circle-check activity-icon"></i>
-              <span className="activity-text">{item}</span>
+              <span className="activity-content-wrapper">
+                <i className="fa-solid fa-circle-check activity-icon"></i>
+                <span className="activity-text">{item}</span>
+              </span>
               <span className="activity-time">Just now</span>
             </li>
           ))}
