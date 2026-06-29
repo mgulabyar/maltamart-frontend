@@ -182,7 +182,7 @@ import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const [loggedInUser, setLoggedInUser] = useState("");
-  const [products, setProducts] = useState([]);
+  const [, setProducts] = useState([]);
 
   useEffect(() => {
     setLoggedInUser(localStorage.getItem("loggedInUser"));
@@ -302,21 +302,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="products-section animate-on-scroll">
-        <h2>Available Products</h2>
-        {products.length === 0 ? (
-          <p className="loading-text">Loading products...</p>
-        ) : (
-          <div className="products-grid">
-            {products.map((item, index) => (
-              <div key={index} className="product-card">
-                <h4>{item.name}</h4>
-                <p>Price: Rs {item.price}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+
 
       <section className="activity-section animate-on-scroll">
         <h2>Recent Activity</h2>
