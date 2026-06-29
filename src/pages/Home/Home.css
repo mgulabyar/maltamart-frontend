@@ -464,7 +464,7 @@
 }
 
 /* ==========================================
-   FEATURES SECTION
+   FEATURES SECTION (EXACT MATCH TO SUMMARY CARDS)
    ========================================== */
 .features {
   padding: 80px 20px;
@@ -474,7 +474,7 @@
 .features h2 {
   font-size: 36px;
   margin-bottom: 50px;
-  color: #ff8c00; /* RESTORED: Original header color */
+  color: #ff8c00;
 }
 
 .features-grid {
@@ -483,24 +483,26 @@
   gap: 25px;
 }
 
+/* Updated Feature Card to perfectly match Summary Card styles */
 .feature-card {
-  background: #fff;
-  padding: 25px 20px;
-  border-radius: 10px; /* Reduced to professional 10px */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: center;
+  background: #ffffff !important;
+  padding: 25px 20px !important;
+  border-radius: 10px !important; /* Same curved corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /* Soft grey shadow (No orange glow) */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-align: center !important;
 }
 
 .feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
+  transform: translateY(-6px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important; /* Same hover shadow */
 }
 
 .feature-card h3 {
-  color: #ff8c00; /* RESTORED: Original text color */
+  color: #ff8c00;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 20px; /* Matched title size to summary cards */
+  font-weight: 600;
 }
 
 .feature-card p {
