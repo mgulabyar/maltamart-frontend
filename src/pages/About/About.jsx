@@ -177,6 +177,7 @@
 // export default About;
 
 
+
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -225,6 +226,27 @@ const About = () => {
             MaltaMart is a family-run business recognized for premium quality,
             timely supply, and international export standards.
           </p>
+        </div>
+      </div>
+
+      <div className="about-section stats-section" data-aos="fade-up">
+        <div className="stats-grid">
+          <div className="stat-card">
+            <h4>10+</h4>
+            <p>Years of Farming Excellence</p>
+          </div>
+          <div className="stat-card">
+            <h4>500+</h4>
+            <p>Acres of Premium Farmland</p>
+          </div>
+          <div className="stat-card">
+            <h4>15M+</h4>
+            <p>Oranges Harvested Annually</p>
+          </div>
+          <div className="stat-card">
+            <h4>50+</h4>
+            <p>Global Export Partners</p>
+          </div>
         </div>
       </div>
 

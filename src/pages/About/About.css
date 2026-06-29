@@ -430,7 +430,7 @@ body {
 .about-section {
   margin-top: 40px;
   padding: 24px 5%;
-  max-width: 1200px;
+  max-width: 1250px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -457,6 +457,42 @@ body {
   line-height: 1.7;
   color: #555566;
   margin-bottom: 12px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 140, 0, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card h4 {
+  font-size: 36px;
+  color: var(--primary-orange);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 14px;
+  color: #555566;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .about-section h2 {
@@ -492,15 +528,15 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .feature-card {
   background: #ffffff;
   border-radius: 10px;
-  padding: 24px 16px;
+  padding: 36px 24px;
   text-align: center;
   box-shadow: var(--card-shadow);
   border: 1px solid rgba(0, 0, 0, 0.02);
@@ -509,13 +545,13 @@ body {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.15);
 }
 
 .feature-card h3 {
   color: var(--primary-orange);
-  margin-top: 12px;
-  margin-bottom: 8px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   font-size: 18px;
 }
 
@@ -659,6 +695,12 @@ body {
   }
 }
 
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .about-hero h1 {
     font-size: 32px;
@@ -681,6 +723,30 @@ body {
   .variety-list {
     grid-template-columns: 1fr;
     max-width: 320px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  .feature-card {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  .stat-card {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
