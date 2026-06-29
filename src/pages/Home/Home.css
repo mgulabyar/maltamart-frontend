@@ -164,8 +164,8 @@
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 1200px;
+  gap: 22px;
+  max-width: 900px;
   margin: 0 auto;
 }
 

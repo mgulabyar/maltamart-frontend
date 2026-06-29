@@ -155,7 +155,7 @@ const Home = () => {
         <h2>Recent Activity</h2>
         <ul className="activity-list">
           {[
-            "New citrus partner onboarded: 'Sargodha Orange Orchards'",
+            "New citrus partner onboarded: 'Orange Orchards'",
             "Added new premium variety to catalog: 'Hamlin Orange'",
             "Dispatched citrus export shipment order #3840 to GCC port",
             "Quality assurance grading checklist completed for the harvest",
