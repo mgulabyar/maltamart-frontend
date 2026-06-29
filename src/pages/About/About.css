@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 .about-hero {
-  height: 80vh;
+  height: 50vh;
   background:#ffa500;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ body {
   align-items: center;
   text-align: center;
   color: white;
-  padding: 20px;
+  padding: 15px;
   position: relative;
   overflow: hidden;
 }
@@ -44,7 +44,7 @@ body {
 .about-hero h1 {
   font-size: 60px;
   color: white;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 2px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   animation: fadeSlideUp 1s ease forwards;
@@ -57,8 +57,8 @@ body {
 }
 
 .owner-floating {
-  width: 320px;
-  height: 320px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #fff;

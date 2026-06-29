@@ -35,7 +35,7 @@ const About = () => {
       <div className="about-section top-owner" data-aos="fade-up">
         <div className="owner-top-wrapper">
           <div>
-            <h2>Founder & CEO - M. Gulab Yar</h2>
+            <h2>Founder & CEO - Shabana Ishaq</h2>
             <p>
               With over <strong>10 years of experience</strong> in Kinnow
               (orange) farming, harvesting, and exports. Our farmlands span
