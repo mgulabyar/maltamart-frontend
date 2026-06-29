@@ -831,11 +831,6 @@ body {
   font-weight: 600;
 }
 
-.mobile-create-btn {
-  color: var(--primary-orange) !important;
-  font-weight: 600 !important;
-}
-
 .mobile-profile-section {
   display: flex;
   flex-direction: column;

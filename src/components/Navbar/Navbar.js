@@ -382,7 +382,7 @@ const Navbar = () => {
         )}
 
         {role === "admin" && (
-          <button className={`mobile-create-btn ${getActiveCls("/create-variety")}`} onClick={handleCreateVariety}>
+          <button className={getActiveCls("/create-variety")} onClick={handleCreateVariety}>
             Create
           </button>
         )}
