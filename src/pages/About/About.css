@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -352,5 +352,598 @@ body {
 @media (min-width: 1200px) {
   .features-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+} */
+
+
+/* ==========================================
+   MALTA MART PREMIUM DESIGN & LAYOUT VARIABLES
+   ========================================== */
+:root {
+  --primary-orange: #ff7a00;
+  --primary-hover: #e05a00;
+  --orange-light: rgba(255, 122, 0, 0.08);
+  --dark-slate: #1e1e24;
+  --text-muted: #555566;
+  --bg-light: #fff8f0;
+  --card-shadow: 0 10px 25px rgba(255, 122, 0, 0.06);
+  --btn-shadow: 0 4px 15px rgba(255, 122, 0, 0.15);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg-light);
+  color: #333;
+  overflow-x: hidden;
+  padding-top: 72px; /* Fixed Navbar overlapping issue resolved */
+}
+
+/* ==========================================
+   HIGH-END RESPONSIVE STICKY NAVBAR
+   ========================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px); /* For Safari support */
+  border-bottom: 1px solid rgba(255, 122, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+/* Nav Left */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition-smooth);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-hover));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Nav Center (Navigation Tabs) */
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-center button {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.nav-center button:hover {
+  color: var(--primary-orange);
+  background: rgba(255, 122, 0, 0.04);
+}
+
+/* Active Open Tab (Orange Styling) */
+.nav-center button.active {
+  color: var(--primary-orange);
+  font-weight: 600;
+  background: var(--orange-light);
+}
+
+/* Nav Right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  background: transparent;
+  border: 1px solid rgba(255, 122, 0, 0.25);
+  color: var(--primary-orange);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.auth-buttons button:hover {
+  background: rgba(255, 122, 0, 0.04);
+  border-color: var(--primary-orange);
+}
+
+/* Specific Signup premium touch */
+.auth-buttons a:last-child button {
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-hover));
+  border: none;
+  color: #ffffff;
+  box-shadow: var(--btn-shadow);
+}
+
+.auth-buttons a:last-child button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.25);
+}
+
+/* Create Button */
+.create-btn {
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-hover));
+  border: none;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: var(--transition-smooth);
+}
+
+.create-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Profile Icon */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-hover));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.profile-icon:hover {
+  transform: scale(1.04);
+}
+
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Profile Dropdown Card */
+.profile-card {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition-smooth);
+  z-index: 1010;
+}
+
+.profile-card.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f3f3f6;
+}
+
+.profile-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff0e0;
+  color: var(--primary-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.profile-info .name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-slate);
+}
+
+.profile-info .email {
+  font-size: 12px;
+  color: #888899;
+}
+
+.profile-links {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-links p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.profile-links p:hover {
+  background: #f7f7fa;
+  color: var(--primary-orange);
+}
+
+.profile-actions {
+  padding-top: 12px;
+  border-top: 1px solid #f3f3f6;
+}
+
+.profile-actions button {
+  width: 100%;
+  background: #fdf0e7;
+  border: none;
+  color: var(--primary-orange);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.profile-actions button:hover {
+  background: #ffe1cc;
+}
+
+/* Responsive Hamburger Icon */
+.nav-toggle {
+  display: none;
+  font-size: 22px;
+  color: var(--dark-slate);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================
+   MOBILE MENU DROPDOWN & ANIMATIONS
+   ========================================== */
+.mobile-menu {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 122, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 5%;
+  gap: 8px;
+  z-index: 999;
+
+  /* Smooth Slide & Fade transitions */
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.4s ease;
+}
+
+/* When Mobile Menu is Active */
+.mobile-menu.open {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-menu button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.mobile-menu button:hover,
+.mobile-menu button.active {
+  color: var(--primary-orange);
+  background: rgba(255, 122, 0, 0.04);
+}
+
+.mobile-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid #f3f3f6;
+  margin-top: 8px;
+}
+
+.mobile-user-details .name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-slate);
+}
+
+.mobile-user-details .email {
+  font-size: 12px;
+  color: #888899;
+}
+
+.logout-btn-mobile {
+  background: #fdf0e7 !important;
+  color: var(--primary-orange) !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+}
+
+.mobile-auth-wrapper {
+  display: flex;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #f3f3f6;
+}
+
+.mobile-auth-wrapper button {
+  text-align: center !important;
+}
+
+/* ==========================================
+   ABOUT & LANDING SECTION HIGH-END OPTIMIZATION
+   ========================================== */
+.about-hero {
+  height: 70vh; /* Reduced extra-large spacing */
+  background: var(--primary-orange);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero h1 {
+  font-size: 52px; /* Sleeker look instead of huge text */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.about-hero .hero-sub {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+  opacity: 0.95;
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+
+/* Soft Warm Glow Floating Card (Optimized Border & Shadow) */
+.owner-floating {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 15px 35px rgba(255, 122, 0, 0.15); /* Cleaned harsh shadows */
+  position: absolute;
+  top: 75%;
+  left: 50%; /* Centered horizontally for cross-device support */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: fadeZoom 1.5s ease forwards;
+  transition: var(--transition-smooth);
+}
+
+.owner-floating:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Fixed section spacing */
+.about-section {
+  margin-top: 100px; /* Reduced excess gap */
+  padding: 60px 20px;
+}
+
+.about-section h2 {
+  font-size: 32px;
+  color: var(--primary-orange);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.about-section h2::after {
+  content: "";
+  width: 80px; /* Elegant divider width */
+  height: 3px;
+  background: var(--primary-orange);
+  display: block;
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
+}
+
+.about-section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #4a4a55;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* High-end Cards design and borders */
+.feature-card {
+  background: #fff;
+  border-radius: 12px; /* Professional border radius */
+  padding: 28px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 122, 0, 0.04);
+  transition: var(--transition-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(255, 122, 0, 0.1);
+}
+
+.feature-card h3 {
+  color: var(--primary-orange);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.owner-section img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.owner-section img:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   BREAKPOINTS (CROSS-DEVICE HIGHER RESPONSIVENESS)
+   ========================================== */
+@media (max-width: 992px) {
+  .nav-center {
+    display: none; /* Hide standard nav link tabs */
+  }
+
+  .nav-toggle {
+    display: flex; /* Show Hamburger menu button */
+    order: 2;
+  }
+
+  .profile-wrapper {
+    order: 1;
+  }
+
+  .auth-buttons {
+    display: none; /* Desktop auth hides and shows on mobile menu instead */
+  }
+
+  .owner-floating {
+    top: 80%;
+  }
+
+  .about-section {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 38px;
+  }
+  .about-hero .hero-sub {
+    font-size: 17px;
+  }
+  .owner-floating {
+    width: 220px;
+    height: 220px;
+    top: 82%;
+  }
+  .about-section {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 4%;
+  }
+  .about-hero h1 {
+    font-size: 30px;
+  }
+  .owner-floating {
+    width: 180px;
+    height: 180px;
+    top: 84%;
   }
 }
