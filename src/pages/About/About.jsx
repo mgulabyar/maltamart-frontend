@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
 import "aos/dist/aos.css";
-import owner from "../../images/asfand.jpeg";
+import owner from "../../images/shabana.jpeg";
 import "./About.css";
 import Footer from "../../components/Footer/Footer";
 
@@ -27,7 +27,7 @@ const About = () => {
         <div>
           <h1 className="head">About Our Company</h1>
           <p className="hero-sub">
-            Pakistan’s Premium Kinnow & Citrus Exporters
+            Pakistan's Premium Kinnow & Citrus Exporters
           </p>
         </div>
       </div>
