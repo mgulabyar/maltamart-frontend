@@ -4,7 +4,6 @@ import {
   faTwitter,
   faLinkedin,
   faGithub,
-  faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 
 import "aos/dist/aos.css";
@@ -37,17 +36,26 @@ const Footer = () => {
           <div className="footer-social">
             <h3>Follow Us</h3>
             <div className="social-icons">
-              <a href="https://twitter.com" target="_blank" rel="noreferrer">
+              <a
+                href="https://x.com/GulabYaar239"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.linkedin.com/in/gulab-yar-fullstack-developer/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/mgulabyar"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faGithub} />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faFacebook} />
               </a>
             </div>
           </div>
