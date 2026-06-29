@@ -1,4 +1,3 @@
-
 // import { useEffect, useState } from "react";
 // import { handleError } from "../../utils";
 // import "aos/dist/aos.css";
@@ -23,7 +22,7 @@
 //       });
 
 //       if (!response.ok) {
-//         setProducts([]); 
+//         setProducts([]);
 //         return;
 //       }
 
@@ -172,7 +171,6 @@
 
 // export default Home;
 
-
 import { useEffect, useState } from "react";
 import { handleError } from "../../utils";
 import "aos/dist/aos.css";
@@ -190,14 +188,17 @@ const Home = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("https://maltamart-backend.vercel.app/products", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+      const response = await fetch(
+        "https://maltamart-backend.vercel.app/products",
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         },
-      });
+      );
 
       if (!response.ok) {
-        setProducts([]); 
+        setProducts([]);
         return;
       }
 
@@ -219,7 +220,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.15 } // Slightly lower threshold for faster mobile triggers
+      { threshold: 0.15 },
     );
 
     document.querySelectorAll(".animate-on-scroll").forEach((el) => {
@@ -249,6 +250,10 @@ const Home = () => {
             <div className="hero-card">
               <h3>Pending Orders</h3>
               <p>5</p>
+            </div>
+            <div className="hero-card">
+              <h3>Total Revenue</h3>
+              <p>$12,450</p>
             </div>
           </div>
         </div>
@@ -301,8 +306,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
 
       <section className="activity-section animate-on-scroll">
         <h2>Recent Activity</h2>
