@@ -186,7 +186,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaBars, FaCog, FaUserCircle, FaBell } from "react-icons/fa";
+import { FaBars, FaTimes, FaCog, FaUserCircle, FaBell } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 import logo from "../../images/logo.png";
 import "./Navbar.css";
@@ -234,7 +234,7 @@ const Navbar = () => {
       if (result.success) {
         localStorage.clear();
         handleSuccess("Logged out successfully!");
-        setTimeout(() => navigate("/"), 4000); 
+        setTimeout(() => navigate("/"), 4000);
       } else {
         handleError(result.message || "Logout failed");
       }
@@ -248,7 +248,6 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  // Helper function to check active class
   const getActiveCls = (path) => (location.pathname === path ? "active" : "");
 
   return (
@@ -277,68 +276,73 @@ const Navbar = () => {
         )}
 
         <div className="nav-right">
+          {/* Desktop actions (Only visible on wide screens) */}
+          <div className="desktop-actions">
+            {token ? (
+              <div className="profile-wrapper" ref={dropdownRef}>
+                {role === "admin" && (
+                  <button className="create-btn" onClick={handleCreateVariety}>
+                    Create
+                  </button>
+                )}
+
+                <div
+                  className="profile-icon"
+                  onClick={() => setProfileOpen(!profileOpen)}
+                >
+                  {loggedInUser?.charAt(0).toUpperCase() || "U"}
+                </div>
+
+                <div className={`profile-card ${profileOpen ? "show" : ""}`}>
+                  <div className="profile-header">
+                    <div className="profile-circle">
+                      {loggedInUser?.charAt(0).toUpperCase()}
+                    </div>
+                    <div className="profile-info">
+                      <p className="name">{loggedInUser}</p>
+                      <p className="email">{email}</p>
+                    </div>
+                  </div>
+
+                  <div className="profile-links">
+                    <p>
+                      <FaCog /> Settings
+                    </p>
+                    <p>
+                      <FaUserCircle /> My Account
+                    </p>
+                    <p>
+                      <FaBell /> Notifications
+                    </p>
+                  </div>
+
+                  <div className="profile-actions">
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="auth-buttons">
+                <Link to="/login">
+                  <button className="login-btn">Login</button>
+                </Link>
+                <Link to="/signup">
+                  <button className="signup-btn">Signup</button>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Hamburger or Close icon toggle (Only visible on mobile/tablet) */}
           {!hideCenter && (
             <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-              <FaBars />
-            </div>
-          )}
-
-          {token ? (
-            <div className="profile-wrapper" ref={dropdownRef}>
-              {role === "admin" && (
-                <button className="create-btn" onClick={handleCreateVariety}>
-                  Create
-                </button>
-              )}
-
-              <div
-                className="profile-icon"
-                onClick={() => setProfileOpen(!profileOpen)}
-              >
-                {loggedInUser?.charAt(0).toUpperCase() || "U"}
-              </div>
-
-              <div className={`profile-card ${profileOpen ? "show" : ""}`}>
-                <div className="profile-header">
-                  <div className="profile-circle">
-                    {loggedInUser?.charAt(0).toUpperCase()}
-                  </div>
-                  <div className="profile-info">
-                    <p className="name">{loggedInUser}</p>
-                    <p className="email">{email}</p>
-                  </div>
-                </div>
-
-                <div className="profile-links">
-                  <p>
-                    <FaCog /> Settings
-                  </p>
-                  <p>
-                    <FaUserCircle /> My Account
-                  </p>
-                  <p>
-                    <FaBell /> Notifications
-                  </p>
-                </div>
-
-                <div className="profile-actions">
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="auth-buttons">
-              <Link to="/login">
-                <button className="login-btn">Login</button>
-              </Link>
-              <Link to="/signup">
-                <button className="signup-btn">Signup</button>
-              </Link>
+              {menuOpen ? <FaTimes /> : <FaBars />}
             </div>
           )}
         </div>
       </nav>
 
+      {/* Professional Responsive Slide-down Mobile Menu */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <button className={getActiveCls("/home")} onClick={() => navigate("/home")}>
           Home
@@ -354,11 +358,13 @@ const Navbar = () => {
         </button>
 
         {role === "admin" && (
-          <button onClick={handleCreateVariety}>Create</button>
+          <button className={`mobile-create-btn ${getActiveCls("/create-variety")}`} onClick={handleCreateVariety}>
+            Create
+          </button>
         )}
 
         {token ? (
-          <>
+          <div className="mobile-profile-section">
             <div className="mobile-profile-card">
               <div className="profile-circle">
                 {loggedInUser?.charAt(0).toUpperCase()}
@@ -368,12 +374,14 @@ const Navbar = () => {
                 <p className="email">{email}</p>
               </div>
             </div>
-            <button className="logout-btn-mobile" onClick={handleLogout}>Logout</button>
-          </>
+            <button className="logout-btn-mobile" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
         ) : (
           <div className="mobile-auth-wrapper">
-            <button onClick={() => navigate("/login")}>Login</button>
-            <button onClick={() => navigate("/signup")}>Signup</button>
+            <button className="mobile-login-btn" onClick={() => navigate("/login")}>Login</button>
+            <button className="mobile-signup-btn" onClick={() => navigate("/signup")}>Signup</button>
           </div>
         )}
       </div>
