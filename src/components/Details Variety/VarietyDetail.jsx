@@ -93,7 +93,7 @@ const VarietyDetail = () => {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const res = await fetch("http://localhost:8080/favourites", {
+        const res = await fetch("https://maltamart-backend.vercel.app/favourites", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -156,7 +156,7 @@ const VarietyDetail = () => {
 
     try {
       if (!isFavourite) {
-        const res = await fetch("http://localhost:8080/favourites/add", {
+        const res = await fetch("https://maltamart-backend.vercel.app/favourites/add", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -170,7 +170,7 @@ const VarietyDetail = () => {
         else alert(data.message);
       } else {
         const res = await fetch(
-          `http://localhost:8080/favourites/remove/${id}`,
+          `https://maltamart-backend.vercel.app/favourites/remove/${id}`,
           {
             method: "DELETE",
             headers: {
