@@ -17,6 +17,7 @@ const Footer = () => {
             <h2 className="footer-logo">MaltaMart</h2>
             <p>Fresh oranges delivered to your doorstep.</p>
             <p>Premium varieties and quick delivery.</p>
+            <p>Certified organic from local orchards.</p>
           </div>
 
           <div className="footer-links">
@@ -28,8 +29,8 @@ const Footer = () => {
 
           <div className="footer-contact">
             <h3>Contact Us</h3>
-            <p>Email: support@maltamart.com</p>
-            <p>Phone: +92 300 1234567</p>
+            <p>Email: shabanaishaq.work@gmail.com</p>
+            <p>Phone: +92 336 7190072</p>
             <p>Address: Faisalabad, Pakistan</p>
           </div>
 
