@@ -172,6 +172,13 @@
 // export default Home;
 
 import { useEffect, useState } from "react";
+import {
+  FaBoxes,
+  FaUsers,
+  FaShoppingBag,
+  FaDollarSign,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { handleError } from "../../utils";
 import "aos/dist/aos.css";
 import { ToastContainer } from "react-toastify";
@@ -240,18 +247,22 @@ const Home = () => {
 
           <div className="hero-cards">
             <div className="hero-card">
+              <FaBoxes className="hero-card-icon" />
               <h3>Total Products</h3>
               <p>23</p>
             </div>
             <div className="hero-card">
+              <FaUsers className="hero-card-icon" />
               <h3>Active Sellers</h3>
               <p>128</p>
             </div>
             <div className="hero-card">
+              <FaShoppingBag className="hero-card-icon" />
               <h3>Pending Orders</h3>
               <p>5</p>
             </div>
             <div className="hero-card">
+              <FaDollarSign className="hero-card-icon" />
               <h3>Total Revenue</h3>
               <p>$12,450</p>
             </div>
@@ -311,14 +322,14 @@ const Home = () => {
         <h2>Recent Activity</h2>
         <ul className="activity-list">
           {[
-            "New seller onboarded: 'ABC Electronics'",
-            "Added new product: 'Smart Widget'",
-            "Processed order #1245",
-            "Updated inventory for 'Wireless Earbuds'",
+            "New citrus partner onboarded: 'Sargodha Orange Orchards'",
+            "Added new premium variety to catalog: 'Hamlin Orange'",
+            "Dispatched citrus export shipment order #3840 to GCC port",
+            "Quality assurance grading checklist completed for the harvest",
           ].map((item, index) => (
             <li key={index} className="activity-item animate-on-scroll">
               <span className="activity-content-wrapper">
-                <i className="fa-solid fa-circle-check activity-icon"></i>
+                <FaCheckCircle className="activity-icon" />
                 <span className="activity-text">{item}</span>
               </span>
               <span className="activity-time">Just now</span>

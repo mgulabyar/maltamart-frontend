@@ -6,7 +6,7 @@
 
 .home-container {
   font-family: "Segoe UI", sans-serif;
-  background: #f5f5f5; 
+  background: #f5f5f5;
   color: #333;
   overflow-x: hidden;
 }
@@ -28,7 +28,7 @@
   background: linear-gradient(135deg, #ffa500, #ff8c00);
   color: white;
   text-align: center;
-  padding: 120px 5%; 
+  padding: 120px 5%;
   border-radius: 0 0 24px 24px;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@
 }
 
 .hero-content {
-  max-width: 1200px; 
+  max-width: 1200px;
   width: 100%;
 }
 
@@ -57,7 +57,7 @@
 
 .hero-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -65,27 +65,38 @@
 
 .hero-card {
   background-color: #fff;
-  backdrop-filter: blur(12px);
-  padding: 25px 20px;
+  padding: 20px 16px;
   border-radius: 10px;
-  min-width: 160px;
+  min-width: 140px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   color: #ff8c00;
   transition:
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-card-icon {
+  font-size: 24px;
+  color: #ff8c00;
+  margin-bottom: 4px;
 }
 
 .hero-card h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #ff8c00;
+  font-size: 14px;
+  color: #888899;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .hero-card p {
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: #444452;
 }
 
 .hero-card:hover {
@@ -94,7 +105,7 @@
 }
 
 .dashboard-summary {
-  padding: 80px 5%; 
+  padding: 80px 5%;
   text-align: center;
 }
 
@@ -140,7 +151,7 @@
 }
 
 .features {
-  padding: 80px 5%; 
+  padding: 80px 5%;
   text-align: center;
 }
 
@@ -159,19 +170,20 @@
 }
 
 .feature-card {
-  background: #ffffff !important;
-  padding: 25px 20px !important;
-  border-radius: 10px !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition:
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  text-align: center !important;
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
 }
 
 .feature-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .feature-card h3 {
@@ -187,57 +199,6 @@
   color: #555;
 }
 
-.products-section {
-  padding: 80px 5%;
-  text-align: center;
-}
-
-.products-section h2 {
-  font-size: 36px;
-  margin-bottom: 25px;
-  color: #ff8c00;
-}
-
-.loading-text {
-  font-size: 18px;
-  color: #555;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: center;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
-}
-
-.product-card h4 {
-  margin-bottom: 10px;
-  color: #ff8c00;
-}
-
-.product-card p {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-
 .activity-section {
   padding: 60px 5%;
   text-align: center;
@@ -245,7 +206,7 @@
   border-radius: 12px;
   margin: 40px auto;
   max-width: 1200px;
-  width: 90%; 
+  width: 90%;
 }
 
 .activity-section h2 {
@@ -267,7 +228,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px;
+  padding: 18px 24px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition:
@@ -290,24 +251,35 @@
 .activity-content-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .activity-icon {
   color: #ff8c00;
   font-size: 20px;
+  flex-shrink: 0;
 }
 
 .activity-text {
-  font-size: 16px;
+  font-size: 15px;
+  color: #444452;
   text-align: left;
+  font-weight: 500;
 }
 
 .activity-time {
-  font-size: 14px;
-  color: #888;
+  font-size: 13px;
+  color: #888899;
+  font-weight: 500;
+  flex-shrink: 0;
 }
 
+@media (max-width: 1024px) {
+  .hero-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
 
 @media (max-width: 768px) {
   .hero h1 {
@@ -317,7 +289,6 @@
     font-size: 18px;
   }
   .features h2,
-  .products-section h2,
   .dashboard-summary h2,
   .activity-section h2 {
     font-size: 28px;
@@ -325,14 +296,13 @@
 
   .hero-cards,
   .summary-cards,
-  .features-grid,
-  .products-grid {
+  .features-grid {
     grid-template-columns: 1fr !important;
     gap: 16px;
   }
 
   .activity-section {
-    width: 90%; 
+    width: 90%;
   }
 
   .activity-item {
