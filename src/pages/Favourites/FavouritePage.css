@@ -14,7 +14,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .fav-container {
@@ -40,6 +44,16 @@
   display: block;
   margin: 12px auto 0 auto;
   border-radius: 2px;
+}
+
+.fav-subtitle {
+  text-align: center;
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .no-fav {
@@ -76,7 +90,6 @@
 }
 
 .fav-card:hover {
-  /* transform: translateY(-8px) scale(1.01) !important; */
   box-shadow: 0 15px 35px rgba(255, 140, 0, 0.1) !important;
   border-color: rgba(255, 140, 0, 0.25) !important;
 }
