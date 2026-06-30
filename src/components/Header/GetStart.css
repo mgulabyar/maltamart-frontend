@@ -214,6 +214,8 @@
 :root {
   --primary-orange: #ff8c00;
   --primary-hover: #e05a00;
+  --dark-slate: #1e1e24;
+  --text-muted: #555566;
   --bg-light: #fffcf8;
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);

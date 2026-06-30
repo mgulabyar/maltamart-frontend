@@ -124,6 +124,7 @@
 
 // export default MaltaMartGetStart;
 
+
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -155,13 +156,12 @@ const MaltaMartGetStart = () => {
         <div className="features-grid">
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="100">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/415/415733.png"
+              src="https://cdn-icons-png.flaticon.com/512/1721/1721477.png"
               alt="Fresh"
             />
             <h3>Fresh Varieties</h3>
             <p>
-              Discover top-quality oranges sourced fresh from our family
-              orchards.
+              Oranges sourced fresh from our family orchards.
             </p>
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="200">
@@ -171,8 +171,7 @@ const MaltaMartGetStart = () => {
             />
             <h3>Premium Quality</h3>
             <p>
-              Every citrus is strictly handpicked ensuring rich flavor and
-              taste.
+              Every citrus is handpicked for rich taste.
             </p>
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="300">
@@ -182,37 +181,37 @@ const MaltaMartGetStart = () => {
             />
             <h3>Fast Delivery</h3>
             <p>
-              Get your custom bulk packages delivered quickly at your doorstep.
+              Citrus packages delivered directly to you.
             </p>
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="400">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/2910/2910762.png"
+              src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"
               alt="Support"
             />
             <h3>Customer Support</h3>
-            <p>Our dedicated specialist team is ready to assist you 24/7.</p>
+            <p>
+              Our dedicated support team is active 24/7.
+            </p>
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="500">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/3062/3062254.png"
+              src="https://cdn-icons-png.flaticon.com/512/892/892926.png"
               alt="Organic"
             />
             <h3>Organic Orchards</h3>
             <p>
-              Experience naturally grown citrus sourced from certified organic
-              orchards.
+              Purely organic citrus from certified fields.
             </p>
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="600">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/1554/1554491.png"
+              src="https://cdn-icons-png.flaticon.com/512/950/950116.png"
               alt="Logistics"
             />
             <h3>Secure Logistics</h3>
             <p>
-              Enjoy export-grade packaging with complete cold chain shipment
-              transit.
+              Export packaging with monitored cold transit.
             </p>
           </div>
         </div>
@@ -252,10 +251,7 @@ const MaltaMartGetStart = () => {
             data-aos-delay="200"
           >
             <h3>Premium Pack</h3>
-            <p>
-              Receive a diverse, hand-graded collection of premium citrus
-              breeds.
-            </p>
+            <p>Receive a diverse, hand-graded collection of premium citrus breeds.</p>
             <p className="price">Rs 750</p>
             <button onClick={() => navigate("/signup")}>Book Now</button>
           </div>
