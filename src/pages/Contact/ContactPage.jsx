@@ -1,5 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaUserAlt,
+} from "react-icons/fa";
 import ExpertImage from "../../images/asfand.jpeg";
 import Footer from "../../components/Footer/Footer";
 import "./ContactPage.css";
@@ -37,6 +42,11 @@ const ContactPage = () => {
           </div>
 
           <div className="contact-details" ref={detailsRef}>
+            <div className="expert-name-row">
+              <FaUserAlt className="contact-icon" />
+              <span className="expert-name">Shabana Ishaq</span>
+            </div>
+
             <div>
               <FaPhoneAlt className="contact-icon" />
               <a href="tel:+923367190072">+92 336 7190072</a>

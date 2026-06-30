@@ -1,3 +1,13 @@
+:root {
+  --primary-orange: #ff6f00;
+  --primary-hover: #ff844c;
+  --dark-slate: #1e1e24;
+  --text-muted: #555566;
+  --bg-light: #fffcf8;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -19,7 +29,7 @@
 
 .contact-header h1 {
   font-size: 40px;
-  color: #ff6f00;
+  color: var(--primary-orange);
   font-weight: 700;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
@@ -27,7 +37,7 @@
 
 .contact-header p {
   font-size: 17px;
-  color: #555566;
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -59,7 +69,7 @@
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: var(--transition-smooth);
 }
 
 .contact-image img:hover {
@@ -89,6 +99,20 @@
   color: #444452;
 }
 
+.expert-name-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.expert-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-orange);
+  letter-spacing: -0.5px;
+}
+
 .contact-details div a {
   color: #444452;
   text-decoration: none;
@@ -96,7 +120,7 @@
 }
 
 .contact-details div a:hover {
-  color: #ff6f00;
+  color: var(--primary-orange);
 }
 
 .contact-buttons {
@@ -106,41 +130,49 @@
 }
 
 .contact-buttons a {
+  display: inline-block;
   text-decoration: none;
   font-weight: 600;
   padding: 11px 24px;
   border-radius: 8px;
   font-size: 15px;
-  transition: all 0.25s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-buttons .btn-call {
-  background-color: #ff6f00;
-  color: #ffffff;
+  background-color: var(--primary-orange);
+  color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(255, 111, 0, 0.15);
 }
 
 .contact-buttons .btn-call:hover {
-  background-color: #ff844c;
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
+  background-color: var(--primary-hover);
+  color: #ffffff !important;
+  transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(255, 111, 0, 0.25);
 }
 
 .contact-buttons .btn-email {
   border: 1px solid rgba(255, 111, 0, 0.25);
+  color: var(--primary-orange);
   background: transparent;
 }
 
 .contact-buttons .btn-email:hover {
-  border-color: #ff6f00;
-  background-color: rgba(255, 111, 0, 0.02);
-  transform: translateY(-2px);
+  border-color: var(--primary-orange);
+  background-color: var(--primary-orange);
+  color: #ffffff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(255, 111, 0, 0.15);
 }
 
 .contact-icon {
   font-size: 20px;
-  color: #ff6f00;
+  color: var(--primary-orange);
   flex-shrink: 0;
 }
 
