@@ -124,29 +124,27 @@ const Home = () => {
         <div className="features-grid">
           <div className="feature-card">
             <h3>Fast Delivery</h3>
-            <p>Ensure products reach customers in record time.</p>
+            <p>Ensure fresh citrus products reach your international buyers instantly.</p>
           </div>
           <div className="feature-card">
             <h3>Secure Payments</h3>
-            <p>All transactions are fully encrypted and safe.</p>
+            <p>All financial transactions are fully encrypted and highly secure.</p>
           </div>
           <div className="feature-card">
             <h3>Analytics</h3>
-            <p>Track sales trends and customer behavior easily.</p>
+            <p>Track your global sales trends and customer behavior metrics easily.</p>
           </div>
           <div className="feature-card">
             <h3>Vendor Collaboration</h3>
-            <p>Communicate seamlessly with other sellers.</p>
+            <p>Communicate and collaborate seamlessly with other premium citrus sellers.</p>
           </div>
           <div className="feature-card">
             <h3>Customizable Store</h3>
-            <p>Personalize your shop layout and product listings.</p>
+            <p>Personalize your customized shop layout and product citrus listings.</p>
           </div>
           <div className="feature-card">
             <h3>Quality Assurance</h3>
-            <p>
-              Every batch is certified to meet premium export-quality standards.
-            </p>
+            <p>Every batch is certified to meet premium export-quality standards.</p>
           </div>
         </div>
       </section>
