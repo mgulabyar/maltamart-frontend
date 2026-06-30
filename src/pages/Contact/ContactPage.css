@@ -103,15 +103,17 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 4px;
+  font-size: 17px; 
+  color: #444452;  
 }
 
 .expert-name {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--primary-orange);
-  letter-spacing: -0.5px;
+  font-size: 17px;       
+  font-weight: 500;      
+  color: #444452;       
+  letter-spacing: normal;
 }
+
 
 .contact-details div a {
   color: #444452;
