@@ -5,7 +5,7 @@ import {
   FaMapMarkerAlt,
   FaUserAlt,
 } from "react-icons/fa";
-import ExpertImage from "../../images/asfand.jpeg";
+import ExpertImage from "../../images/shabana.jpeg";
 import Footer from "../../components/Footer/Footer";
 import "./ContactPage.css";
 
