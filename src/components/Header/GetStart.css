@@ -1,4 +1,4 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -208,4 +208,342 @@
 .free-account .signup-btn:hover {
   transform: scale(1.05);
   background: #f9f9f9;
+} */
+
+
+:root {
+  --primary-orange: #ff8c00;
+  --primary-hover: #e05a00;
+  --bg-light: #fffcf8;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.getstart-container {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg-light);
+}
+
+.hero-landing {
+  background: linear-gradient(135deg, #ffa500, #ff8c00);
+  color: white;
+  text-align: center;
+  padding: 120px 5% 100px 5%;
+}
+
+.hero-landing h1 {
+  font-size: 52px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.hero-landing p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+.hero-landing .cta-btn {
+  background: #ffffff;
+  color: var(--primary-orange);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.hero-landing .cta-btn:hover {
+  transform: translateY(-2px);
+  background: #fdfdfd;
+}
+
+.features-landing {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.features-landing h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: var(--primary-orange);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: var(--transition-smooth);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-card img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  color: var(--primary-orange);
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #555566;
+  line-height: 1.5;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
+}
+
+.steps {
+  background: #fff5e8;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.steps h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: var(--primary-orange);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 40px auto 0 auto;
+}
+
+.step-card {
+  background: #ffffff;
+  padding: 36px 20px 24px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.step-card .step-number {
+  background: var(--primary-orange);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  line-height: 36px;
+  font-weight: 700;
+  font-size: 16px;
+  position: absolute;
+  top: -18px;
+  left: calc(50% - 18px);
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+}
+
+.pricing {
+  padding: 80px 5%;
+  text-align: center;
+  background: #fffcf8;
+}
+
+.pricing h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: var(--primary-orange);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: #ffffff;
+  padding: 36px 24px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 140, 0, 0.12);
+}
+
+.pricing-card.recommended {
+  border: 1.5px solid var(--primary-orange);
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+}
+
+.pricing-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--primary-orange);
+  font-weight: 700;
+}
+
+.pricing-card p {
+  color: #555566;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.pricing-card .price {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--primary-orange);
+}
+
+.pricing-card button {
+  background: var(--primary-orange);
+  color: white;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: 100%;
+}
+
+.pricing-card button:hover {
+  background: var(--primary-hover);
+}
+
+.free-account {
+  padding: 80px 5%;
+  text-align: center;
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
+  color: white;
+}
+
+.free-account h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.free-account p {
+  font-size: 18px;
+  margin-bottom: 28px;
+  opacity: 0.95;
+}
+
+.free-account .signup-btn {
+  background: white;
+  color: #ff8c00;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.free-account .signup-btn:hover {
+  transform: translateY(-2px);
+  background: #fdfdfd;
+}
+
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-landing h1 {
+    font-size: 38px;
+  }
+  .hero-landing p {
+    font-size: 18px;
+  }
+  .features-landing h2,
+  .steps h2,
+  .pricing h2,
+  .free-account h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .features-grid,
+  .steps-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  .feature-card,
+  .step-card,
+  .pricing-card {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .step-card {
+    padding-top: 28px;
+  }
+  .step-card .step-number {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    top: -16px;
+    left: calc(50% - 16px);
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-landing h1 {
+    font-size: 30px;
+  }
+  .hero-landing p {
+    font-size: 16px;
+  }
 }
