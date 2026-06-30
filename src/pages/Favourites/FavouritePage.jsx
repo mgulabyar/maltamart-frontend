@@ -1,7 +1,110 @@
+// import React, { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import "./FavouritePage.css";
+// import { handleSuccess } from "../../utils";
+// import Footer from "../../components/Footer/Footer";
+
+// const FavouritePage = () => {
+//   const [favourites, setFavourites] = useState([]);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchFavourites = async () => {
+//       try {
+//         const token = localStorage.getItem("token");
+//         if (!token) return;
+
+//         const res = await fetch("https://maltamart-backend.vercel.app/favourites", {
+//           headers: { Authorization: `Bearer ${token}` },
+//         });
+
+//         const data = await res.json();
+//         if (data.success) {
+//           setFavourites(
+//             data.data.map((f) => ({
+//               _id: f._id,
+//               name: f.varietyName,
+//               description: f.varietyDescription,
+//               images: f.varietyImages,
+//             }))
+//           );
+//         }
+//       } catch (err) {
+//         console.error(err);
+//       }
+//     };
+
+//     fetchFavourites();
+//   }, []);
+
+//   const removeFavourite = async (id) => {
+//     const token = localStorage.getItem("token");
+//     if (!token) return;
+
+//     const res = await fetch(`https://maltamart-backend.vercel.app/favourites/remove/${id}`, {
+//       method: "DELETE",
+//       headers: { Authorization: `Bearer ${token}` },
+//     });
+
+//     const data = await res.json();
+//     if (data.success) {
+//       handleSuccess("Removed Favourite");
+
+//       setFavourites((prev) => prev.filter((v) => v._id !== id));
+//     } else {
+//       alert(data.message);
+//     }
+//   };
+
+//   return (
+//     <>
+//       <div className="fav-container">
+//         <h1>Your Favourite Varieties</h1>
+
+//         {favourites.length === 0 && (
+//           <p className="no-fav">No favourites added yet.</p>
+//         )}
+
+//         <div className="fav-grid">
+//           {favourites.map((v) => (
+//             <div key={v._id} className="fav-card">
+//               <h3>{v.name}</h3>
+//               {v.description && <p className="fav-desc">{v.description}</p>}
+//               {v.images && v.images.length > 0 ? (
+//                 <img src={v.images} alt={v.name} />
+//               ) : (
+//                 <div className="fav-no-img">No Image</div>
+//               )}
+//               <div className="fav-actions">
+//                 <button
+//                   className="view-btn"
+//                   onClick={() => navigate(`/detail/${v._id}`)}
+//                 >
+//                   View Details
+//                 </button>
+//                 <button
+//                   className="remove-btn"
+//                   onClick={() => removeFavourite(v._id)}
+//                 >
+//                   Remove
+//                 </button>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default FavouritePage;
+
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./FavouritePage.css";
-import { handleSuccess } from "../../utils";
+import { handleSuccess, handleError } from "../../utils";
 import Footer from "../../components/Footer/Footer";
 
 const FavouritePage = () => {
@@ -12,11 +115,20 @@ const FavouritePage = () => {
     const fetchFavourites = async () => {
       try {
         const token = localStorage.getItem("token");
-        if (!token) return;
+        if (!token) {
+          navigate("/login");
+          return;
+        }
 
         const res = await fetch("https://maltamart-backend.vercel.app/favourites", {
           headers: { Authorization: `Bearer ${token}` },
         });
+
+        if (res.status === 403 || res.status === 401) {
+          localStorage.clear();
+          navigate("/login");
+          return;
+        }
 
         const data = await res.json();
         if (data.success) {
@@ -35,24 +147,33 @@ const FavouritePage = () => {
     };
 
     fetchFavourites();
-  }, []);
+  }, [navigate]);
 
   const removeFavourite = async (id) => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    const res = await fetch(`https://maltamart-backend.vercel.app/favourites/remove/${id}`, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    try {
+      const res = await fetch(`https://maltamart-backend.vercel.app/favourites/remove/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-    const data = await res.json();
-    if (data.success) {
-      handleSuccess("Removed Favourite");
+      if (res.status === 403 || res.status === 401) {
+        localStorage.clear();
+        navigate("/login");
+        return;
+      }
 
-      setFavourites((prev) => prev.filter((v) => v._id !== id));
-    } else {
-      alert(data.message);
+      const data = await res.json();
+      if (data.success) {
+        handleSuccess("Removed Favourite");
+        setFavourites((prev) => prev.filter((v) => v._id !== id));
+      } else {
+        handleError(data.message);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -68,26 +189,32 @@ const FavouritePage = () => {
         <div className="fav-grid">
           {favourites.map((v) => (
             <div key={v._id} className="fav-card">
-              <h3>{v.name}</h3>
-              {v.description && <p className="fav-desc">{v.description}</p>}
-              {v.images && v.images.length > 0 ? (
-                <img src={v.images} alt={v.name} />
-              ) : (
-                <div className="fav-no-img">No Image</div>
-              )}
-              <div className="fav-actions">
-                <button
-                  className="view-btn"
-                  onClick={() => navigate(`/detail/${v._id}`)}
-                >
-                  View Details
-                </button>
-                <button
-                  className="remove-btn"
-                  onClick={() => removeFavourite(v._id)}
-                >
-                  Remove
-                </button>
+              <div className="fav-image-frame">
+                {v.images && v.images.length > 0 ? (
+                  <img src={v.images} alt={v.name} />
+                ) : (
+                  <div className="fav-no-img">No Image</div>
+                )}
+              </div>
+              <div className="fav-content-block">
+                <div className="fav-text-details">
+                  <h3>{v.name}</h3>
+                  {v.description && <p className="fav-desc">{v.description}</p>}
+                </div>
+                <div className="fav-actions">
+                  <button
+                    className="view-btn"
+                    onClick={() => navigate(`/detail/${v._id}`)}
+                  >
+                    View Details
+                  </button>
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeFavourite(v._id)}
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
             </div>
           ))}
