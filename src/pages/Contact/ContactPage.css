@@ -123,12 +123,12 @@
 .contact-buttons .btn-call:hover {
   background-color: #ff844c;
   transform: translateY(-2px);
+  transition: all 0.3s ease;
   box-shadow: 0 6px 18px rgba(255, 111, 0, 0.25);
 }
 
 .contact-buttons .btn-email {
   border: 1px solid rgba(255, 111, 0, 0.25);
-  color: #ff6f00;
   background: transparent;
 }
 
