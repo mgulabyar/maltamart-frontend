@@ -42,9 +42,9 @@ const ContactPage = () => {
           </div>
 
           <div className="contact-details" ref={detailsRef}>
-            <div className="expert-name-row">
+            <div>
               <FaUserAlt className="contact-icon" />
-              <span className="expert-name">Shabana Ishaq</span>
+              <span >Shabana Ishaq</span>
             </div>
 
             <div>
