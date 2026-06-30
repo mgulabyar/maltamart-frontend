@@ -1,3 +1,154 @@
+// import React, { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { FaEye, FaEdit, FaTrash, FaHeart } from "react-icons/fa";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
+// import Footer from "../Footer/Footer";
+// import "./ViewVarieties.css";
+// import { handleError, handleSuccess } from "../../utils";
+
+// const ViewVarieties = () => {
+//   const [varieties, setVarieties] = useState([]);
+//   const navigate = useNavigate();
+//   const role = localStorage.getItem("role");
+
+//   const fetchVarieties = async () => {
+//     try {
+//       const res = await fetch("https://maltamart-backend.vercel.app/varieties");
+//       const data = await res.json();
+//       if (data.success) setVarieties(data.data);
+//       else handleError(data.message);
+//     } catch (err) {
+//       handleError(err.message);
+//     }
+//   };
+
+//   const handleDelete = async (id) => {
+//     try {
+//       const res = await fetch(`https://maltamart-backend.vercel.app/varieties/${id}`, {
+//         method: "DELETE",
+//       });
+//       const data = await res.json();
+//       if (data.success) {
+//         handleSuccess("Deleted successfully");
+//         fetchVarieties();
+//       } else handleError(data.message);
+//     } catch (err) {
+//       handleError(err.message);
+//     }
+//   };
+
+//   const handleAddToFavourite = async (variety) => {
+//     try {
+//       const token = localStorage.getItem("token");
+//       if (!token) return handleError("You must be logged in");
+
+//       const res = await fetch(
+//         `https://maltamart-backend.vercel.app/favourites/add/${variety._id}`,
+//         {
+//           method: "POST",
+//           headers: { Authorization: `Bearer ${token}` },
+//         }
+//       );
+
+//       const data = await res.json();
+
+//       if (data.success) {
+//         handleSuccess("Added to favourites");
+//         navigate("/favourite");
+//       } else handleError(data.message || "Already in favourites");
+//     } catch (err) {
+//       handleError("Could not add to favourites");
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchVarieties();
+//     AOS.init({ duration: 900, easing: "ease-in-out", once: true });
+//   }, []);
+
+//   return (
+//     <>
+//       <div className="maltamart-varieties">
+//         <div className="container">
+//           <h1 className="page-title" data-aos="fade-down">
+//             Maltamart Orange Varieties
+//           </h1>
+//           <p className="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+//             Explore our curated selection of fresh, organic, and handpicked premium citrus varieties, harvested directly from our elite orchards.
+//           </p>
+
+//           <div className="varieties-grid">
+//             {varieties.map((v, index) => (
+//               <div
+//                 key={v._id}
+//                 className="variety-card-horizontal"
+//                 data-aos="fade-up"
+//                 data-aos-delay={index * 120}
+//               >
+//                 <div className="variety-image-horizontal">
+//                   <img src={v.images} alt={v.name} />
+//                 </div>
+
+//                 <div className="variety-content-horizontal">
+//                   <div className="variety-text-details">
+//                     <h3 className="variety-name">{v.name}</h3>
+//                     <p className="variety-desc">{v.description}</p>
+//                   </div>
+                  
+//                   {v.price && <span className="price">Price: Rs {v.price}</span>}
+
+//                   <div className="variety-actions-horizontal">
+//                     <button
+//                       className="icon-btn view"
+//                       onClick={() => navigate(`/detail/${v._id}`)}
+//                     >
+//                       <FaEye /> View
+//                     </button>
+
+//                     {role !== "admin" && (
+//                       <button
+//                         className="icon-btn favorite"
+//                         onClick={() => handleAddToFavourite(v)}
+//                       >
+//                         <FaHeart /> Favorite
+//                       </button>
+//                     )}
+
+//                     {role === "admin" && (
+//                       <>
+//                         <button
+//                           className="icon-btn edit"
+//                           onClick={() =>
+//                             navigate(`/update-variety/${v._id}`)
+//                           }
+//                         >
+//                           <FaEdit /> Edit
+//                         </button>
+
+//                         <button
+//                           className="icon-btn delete"
+//                           onClick={() => handleDelete(v._id)}
+//                         >
+//                           <FaTrash /> Delete
+//                         </button>
+//                       </>
+//                     )}
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default ViewVarieties;
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEdit, FaTrash, FaHeart } from "react-icons/fa";
@@ -9,17 +160,24 @@ import { handleError, handleSuccess } from "../../utils";
 
 const ViewVarieties = () => {
   const [varieties, setVarieties] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const role = localStorage.getItem("role");
 
   const fetchVarieties = async () => {
     try {
+      setLoading(true);
       const res = await fetch("https://maltamart-backend.vercel.app/varieties");
       const data = await res.json();
-      if (data.success) setVarieties(data.data);
-      else handleError(data.message);
+      if (data.success) {
+        setVarieties(data.data);
+      } else {
+        handleError(data.message);
+      }
     } catch (err) {
       handleError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -32,7 +190,9 @@ const ViewVarieties = () => {
       if (data.success) {
         handleSuccess("Deleted successfully");
         fetchVarieties();
-      } else handleError(data.message);
+      } else {
+        handleError(data.message);
+      }
     } catch (err) {
       handleError(err.message);
     }
@@ -56,7 +216,9 @@ const ViewVarieties = () => {
       if (data.success) {
         handleSuccess("Added to favourites");
         navigate("/favourite");
-      } else handleError(data.message || "Already in favourites");
+      } else {
+        handleError(data.message || "Already in favourites");
+      }
     } catch (err) {
       handleError("Could not add to favourites");
     }
@@ -78,67 +240,78 @@ const ViewVarieties = () => {
             Explore our curated selection of fresh, organic, and handpicked premium citrus varieties, harvested directly from our elite orchards.
           </p>
 
-          <div className="varieties-grid">
-            {varieties.map((v, index) => (
-              <div
-                key={v._id}
-                className="variety-card-horizontal"
-                data-aos="fade-up"
-                data-aos-delay={index * 120}
-              >
-                <div className="variety-image-horizontal">
-                  <img src={v.images} alt={v.name} />
-                </div>
-
-                <div className="variety-content-horizontal">
-                  <div className="variety-text-details">
-                    <h3 className="variety-name">{v.name}</h3>
-                    <p className="variety-desc">{v.description}</p>
+          {loading ? (
+            <div className="varieties-loader-container">
+              <div className="citrus-spinner"></div>
+              <p>Fetching fresh orange varieties...</p>
+            </div>
+          ) : varieties.length === 0 ? (
+            <div className="no-varieties-container">
+              <p>No citrus varieties available at the moment.</p>
+            </div>
+          ) : (
+            <div className="varieties-grid">
+              {varieties.map((v, index) => (
+                <div
+                  key={v._id}
+                  className="variety-card-horizontal"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 120}
+                >
+                  <div className="variety-image-horizontal">
+                    <img src={v.images} alt={v.name} />
                   </div>
-                  
-                  {v.price && <span className="price">Price: Rs {v.price}</span>}
 
-                  <div className="variety-actions-horizontal">
-                    <button
-                      className="icon-btn view"
-                      onClick={() => navigate(`/detail/${v._id}`)}
-                    >
-                      <FaEye /> View
-                    </button>
+                  <div className="variety-content-horizontal">
+                    <div className="variety-text-details">
+                      <h3 className="variety-name">{v.name}</h3>
+                      <p className="variety-desc">{v.description}</p>
+                    </div>
+                    
+                    {v.price && <span className="price">Price: Rs {v.price}</span>}
 
-                    {role !== "admin" && (
+                    <div className="variety-actions-horizontal">
                       <button
-                        className="icon-btn favorite"
-                        onClick={() => handleAddToFavourite(v)}
+                        className="icon-btn view"
+                        onClick={() => navigate(`/detail/${v._id}`)}
                       >
-                        <FaHeart /> Favorite
+                        <FaEye /> View
                       </button>
-                    )}
 
-                    {role === "admin" && (
-                      <>
+                      {role !== "admin" && (
                         <button
-                          className="icon-btn edit"
-                          onClick={() =>
-                            navigate(`/update-variety/${v._id}`)
-                          }
+                          className="icon-btn favorite"
+                          onClick={() => handleAddToFavourite(v)}
                         >
-                          <FaEdit /> Edit
+                          <FaHeart /> Favorite
                         </button>
+                      )}
 
-                        <button
-                          className="icon-btn delete"
-                          onClick={() => handleDelete(v._id)}
-                        >
-                          <FaTrash /> Delete
-                        </button>
-                      </>
-                    )}
+                      {role === "admin" && (
+                        <>
+                          <button
+                            className="icon-btn edit"
+                            onClick={() =>
+                              navigate(`/update-variety/${v._id}`)
+                            }
+                          >
+                            <FaEdit /> Edit
+                          </button>
+
+                          <button
+                            className="icon-btn delete"
+                            onClick={() => handleDelete(v._id)}
+                          >
+                            <FaTrash /> Delete
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

@@ -106,7 +106,7 @@
 #create-variety-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
 }
 
 .variety-input {
