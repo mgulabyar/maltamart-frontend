@@ -123,8 +123,6 @@
 // };
 
 // export default MaltaMartGetStart;
-
-
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -156,12 +154,12 @@ const MaltaMartGetStart = () => {
         <div className="features-grid">
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="100">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/1721/1721477.png"
+              src="https://cdn-icons-png.flaticon.com/512/415/415733.png"
               alt="Fresh"
             />
             <h3>Fresh Varieties</h3>
             <p>
-              Oranges sourced fresh from our family orchards.
+              Fresh oranges sourced from our orchards.
             </p>
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="200">
@@ -186,7 +184,7 @@ const MaltaMartGetStart = () => {
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="400">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"
+              src="https://cdn-icons-png.flaticon.com/512/2910/2910762.png"
               alt="Support"
             />
             <h3>Customer Support</h3>
@@ -196,7 +194,7 @@ const MaltaMartGetStart = () => {
           </div>
           <div className="feature-card" data-aos="zoom-in" data-aos-delay="500">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/892/892926.png"
+              src="https://cdn-icons-png.flaticon.com/512/188/188333.png"
               alt="Organic"
             />
             <h3>Organic Orchards</h3>
@@ -211,7 +209,7 @@ const MaltaMartGetStart = () => {
             />
             <h3>Secure Logistics</h3>
             <p>
-              Export packaging with monitored cold transit.
+              Secure packaging with cold chain transit.
             </p>
           </div>
         </div>
