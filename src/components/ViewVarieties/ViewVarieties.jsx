@@ -72,7 +72,7 @@ const ViewVarieties = () => {
       <div className="maltamart-varieties">
         <div className="container">
           <h1 className="page-title" data-aos="fade-down">
-            Maltamart Orange Varieties
+            MaltaMart Orange Varieties
           </h1>
           <p className="page-subtitle" data-aos="fade-up" data-aos-delay="100">
             Explore our curated selection of fresh, organic, and handpicked premium citrus varieties, harvested directly from our elite orchards.
