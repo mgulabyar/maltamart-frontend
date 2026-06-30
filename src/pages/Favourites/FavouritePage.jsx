@@ -314,7 +314,9 @@ const FavouritePage = () => {
     <>
       <div className="fav-container">
         <h1>Your Favourite Varieties</h1>
-
+ <p className="fav-subtitle">
+          Keep track of your preferred citrus breeds and manage your curated orange collection here.
+        </p>
         {favourites.length === 0 && (
           <p className="no-fav">No favourites added yet.</p>
         )}
