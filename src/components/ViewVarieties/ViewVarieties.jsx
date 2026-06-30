@@ -242,13 +242,13 @@ const ViewVarieties = () => {
 
           {loading ? (
             <div className="varieties-loader-container">
-              <div className="citrus-spinner"></div>
-              <p>Fetching fresh orange varieties...</p>
+              <div className="varieties-spinner"></div>
+              <p>Fetching fresh varieties...</p>
             </div>
           ) : varieties.length === 0 ? (
-            <div className="no-varieties-container">
-              <p>No citrus varieties available at the moment.</p>
-            </div>
+            <p className="no-varieties-text">
+              No varieties found. Please check your internet connection and refresh.
+            </p>
           ) : (
             <div className="varieties-grid">
               {varieties.map((v, index) => (
@@ -267,7 +267,7 @@ const ViewVarieties = () => {
                       <h3 className="variety-name">{v.name}</h3>
                       <p className="variety-desc">{v.description}</p>
                     </div>
-                    
+
                     {v.price && <span className="price">Price: Rs {v.price}</span>}
 
                     <div className="variety-actions-horizontal">
